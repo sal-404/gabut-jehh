@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gabut jehh</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* Efek border hologram */
+    .border-hologram {
+      width: 400px;
+      height: 300px;
+      border: 5px solid #ffffff;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: glow 1.5s infinite alternate;
+      padding: 20px;
+      text-align: center;
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4), 0 0 40px rgba(255, 255, 0, 0.5);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.6), 0 0 40px rgba(255, 255, 0, 0.7);
+      }
+    }
+
+    /* Efek hologram teks */
+    .hologram-teks {
+      font-size: 24px;
+      color: #ffffff;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #00ffff;
+      animation: shimmer 1s linear infinite alternate;
+    }
+
+    @keyframes shimmer {
+      0% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #00ffff;
+      }
+    }
+
+    /* Tombol styling */
+    .tombol {
+      padding: 20px 40px;
+      font-size: 22px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .tombol-ya {
+      background-color: #32cd32;
+      color: white;
+      width: 120px;
+      box-shadow: 0 0 20px rgba(50, 205, 50, 0.8);
+      border-radius: 25px;
+    }
+
+    .tombol-tidak {
+      background-color: #f45c42;
+      color: white;
+      width: 120px;
+      box-shadow: 0 0 20px rgba(244, 92, 66, 0.8);
+      border-radius: 25px;
+    }
+
+    .tombol-pindah {
+      position: absolute;
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+<div class="border-hologram">
+  <div id="teksRomantis" class="hologram-teks">Apakah kamu ingin tahu betapa istimewanya kamu bagi hidupku?</div>
+</div>
+
+<div class="buttons">
+  <button id="yaBtn" class="tombol tombol-ya" onclick="teksBaru()">Ya</button>
+  <button id="tidakBtn" class="tombol tombol-tidak" onclick="pindah()">Tidak</button>
+</div>
+
+<script>
+  // Ganti teks romantis dan terus beranimasi
+  function teksBaru() {
+    const teks = document.getElementById("teksRomantis");
+    teks.textContent = "Kamu adalah kebahagiaanku!";
+    teks.classList.add('hologram-teks');
+  }
+
+  // Fungsi untuk pindahkan tombol "Tidak" saat diklik
+  function pindah() {
+    const tombolTidak = document.getElementById("tidakBtn");
+    const randomX = Math.random() * 200 - 100; // Gerakan acak
+    const randomY = Math.random() * 200 - 100; // Gerakan acak
+
+    tombolTidak.style.transform = `translate(${randomX}px, ${randomY}px)`;
+  }
+</script>
+
+</body>
+</html>
